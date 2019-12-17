@@ -22,7 +22,26 @@ describe '#deduct' do
     expect{ subject.deduct }.to change{ subject.balance }.by(-1)
   end 
 end 
-
+describe '#touch_in' do 
+  it "touches in" do 
+    subject.touch_in
+    expect(subject.in_journey).to eq(true)
+  end
 end
+describe '#touch_out' do 
+  it "touches out" do 
+    subject.touch_out
+    expect(subject.in_journey).to eq(false)
+end
+end
+
+
+
+
+
+
+
+
+end 
 
 
