@@ -9,6 +9,10 @@ end
 def top_up(amount)
     raise "balance exceeded" if @balance + amount > MAXIMUM_BALANCE
     @balance = @balance + amount
-    
+end 
+
+def deduct
+
+@balance -= 1 
 end 
 end 
