@@ -17,7 +17,7 @@ describe Oystercard do
   end 
  
 describe '#deduct' do 
-  it "deducts money" do 
+  xit "deducts money" do 
     subject.top_up(10)
     expect{ subject.deduct }.to change{ subject.balance }.by(- Oystercard::MINIMUM_BALANCE)
   end 
@@ -38,12 +38,13 @@ describe '#touch_out' do
     subject.touch_out
     expect(subject.in_journey).to eq(false)
 end
+  it 'deducts balance' do
+    subject.top_up(5)
+    subject.touch_in
+    expect{ subject.touch_out }.to change{ subject.balance }.by(- Oystercard::MINIMUM_BALANCE)
+  end
+ 
 end
-
-
-
-
-
 
 
 

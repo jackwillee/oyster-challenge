@@ -12,9 +12,7 @@ def top_up(amount)
   @balance = @balance + amount
 end 
 
-def deduct
-  @balance -= 1 
-end 
+
 
 def touch_in 
     raise "insufficient funds" if @balance  < MINIMUM_BALANCE
@@ -22,10 +20,15 @@ def touch_in
 end 
 def touch_out
   @in_journey = false 
+  deduct
 end 
 
 def in_journey?
   @in_journey
 end
 
+private
+def deduct 
+@balance -= MINIMUM_BALANCE
+end 
 end 
